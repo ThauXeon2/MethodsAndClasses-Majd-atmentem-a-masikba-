@@ -44,7 +44,7 @@ namespace MethodsAndClasses
             PageCount = 0;
             Count++;
         }
-        bool IsAvailable { get; set; } = true;
+        public bool IsAvailable { get; set; } = true;
         public bool Borrow()
         {
             if (IsAvailable)
@@ -57,5 +57,6 @@ namespace MethodsAndClasses
         }
         public void Return() => IsAvailable = true;
         public static int Count { get; set; }
+        
     }
 }

@@ -9,7 +9,7 @@
             Console.WriteLine(book1.Describe());
             Console.WriteLine(book2.Describe());
             Console.WriteLine($"{book1.IsLong()} {book2.IsLong()}");
-            Book book3 = new("a", "b");
+            Book book3 = new("az", "b");
             Console.WriteLine(book3.Describe());
             Console.WriteLine($"{book3.Borrow()} {book3.Borrow()}");
             book3.Return();
@@ -17,7 +17,6 @@
             Library library = new("c");
             library.AddBook(book1);
             library.AddBook(book2);
-            library.AddBook(book3);
             library.AddBook(new("c","d"));
             library.AddBook(new("d","e"));
             library.PrintAll();
@@ -25,6 +24,14 @@
             Console.WriteLine(library.FindByTitle(book1.Title));
             List<Book> book = library.FindByAuthor(book2.Author);
             foreach(Book _book in book) { Console.WriteLine(_book.Describe()); }
+            Library library2 = new("d");
+            Console.WriteLine(library2.AveragePages());
+            book3.Borrow();
+            library.AddBook(book3);
+            List<Book> book4= library.AvailableBooks();
+            foreach (Book _book in book4) {  Console.WriteLine(_book.Describe()); }
+            Librarian librarian = new("A",library);
+            librarian.Introduce();
         }
     }
 }
